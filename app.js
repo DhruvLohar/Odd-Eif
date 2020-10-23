@@ -75,6 +75,6 @@ function _join(socket_id, username) {
     };
 }
 
-server.listen(3000, '192.168.0.101', () => {
-    console.log('[SOCKET] --> Listening on 192.168.0.103:3000');
+server.listen(3000, '127.0.0.1', () => {
+    console.log('[SOCKET] --> Listening on 127.0.0.1:3000');
 }); 
