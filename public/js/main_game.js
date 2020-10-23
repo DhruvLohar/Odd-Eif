@@ -27,7 +27,7 @@ function waiting_for_result() {
     `);
 }
 $(document).ready((e) => {
-    const socket = io.connect('http://192.168.0.101:3000');
+    const socket = io();
     const interface = new Interface();
     const layout = $('.messages');
     const root_info_layout = $('.root-info');
