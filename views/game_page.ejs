@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
+    <title>Odd &bull; Eif</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="http://192.168.0.101:3000/socket.io/socket.io.js"></script>
+    <script src="/js/chat_interface.js"></script>
+    <script src="/js/main_game.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/css/odd_eif.css">
+    <link rel="stylesheet" type="text/css" href="/css/game_page.css">
+    <link rel="stylesheet" type="text/css" href="/css/result.css">
+</head>
+<body>
+    <div class="container">
+        <div class="root-logo-container">
+            <img class="root-logo" src="/static/logo.png" alt="Logo">
+        </div>
+        <div class="root-container">
+            <div class="card shadow-lg display-thread mb-2">
+                <div class="card-body px-3 py-2">
+                    <div class="row">
+                        <div class="col-10">
+                            Thread : <span class="thread"><%= thread_id %></span> 
+                        </div>
+                        <div class="col-2 chat-option">
+                            <i class="material-icons-outlined">chat</i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card shadow-lg root-card">
+                <div class="card-body text-center pt-0">
+                    <div class="main-menu">
+                        <h2 class="card-title root-welcome">
+                            <div class="form-group my-3">
+                                <input type="text" class="form-control game-select" placeholder="Number" maxlength="2">
+                            </div>
+                        </h2>
+                        <hr class="mx-2 my-2">
+                        <span class="option"></span>
+                        <div class="root-menu">
+                            <div class="root-info">
+                                <span>Waiting For Another Player</span>
+                                <div class="spinner">
+                                    <div class="bounce1"></div>
+                                    <div class="bounce2"></div>
+                                    <div class="bounce3"></div>
+                                </div>
+                            </div>
+                            <div class="game">
+                                <div class="row root-game">
+                                    <div class="col card shadow-lg _self">
+                                        <div class="row">Your Number</div>
+                                        <div class="row num">
+                                            <div class="spinner">
+                                                <div class="bounce1"></div>
+                                                <div class="bounce2"></div>
+                                                <div class="bounce3"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col card shadow-lg opponent">
+                                        <div class="row name"></div>
+                                        <div class="row num">
+                                            <div class="spinner">
+                                                <div class="bounce1"></div>
+                                                <div class="bounce2"></div>
+                                                <div class="bounce3"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="result">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game-interface chat-interface">
+                        <div class="messages mt-3 px-2"></div>
+                        <div class="row input-view fixed-bottom p-2">
+                            <div class="col-10">
+                                <div class="form-group">
+                                    <textarea name="chat-msg" class="form-control msg-input"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <i class="material-icons-round send-msg">send</i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+</html>

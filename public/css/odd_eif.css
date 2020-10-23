@@ -1,0 +1,147 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.material-icons-round {
+    font-size: 30px;
+    vertical-align: middle;
+}
+
+.shadow-lg {
+    box-shadow: 0 2rem 9rem rgba(0,0,0,.175)!important;
+}
+
+input[type=text]:focus {
+    color: var(--primary);
+}
+
+input::-webkit-input-placeholder {
+    letter-spacing: 3px;
+    color: var(--primary);
+    text-align: center;
+}
+
+.root-logo {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.root-welcome {
+    font-family: 'Bangers';
+    font-size: 45px;
+    color: var(--primary);
+}
+
+.root-container {
+    max-width: 400px;
+    height: 400px;
+    width: 350px;
+    position: absolute; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    perspective: 1000;
+}
+
+.root-card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 20px;
+    transition: all 0.5s ease;
+    transform-style: preserve-3d;
+}
+
+.main-menu {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden !important;
+    border-radius: 20px;
+    display: contents;
+    margin: auto;
+}
+
+.game-interface {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+    border-radius: 20px;
+    transform: rotateY(180deg);
+    background-color: white;
+}
+
+.root-menu button, .game-interface button {
+    width: 300px;
+    height: 50px;
+    margin: 0 auto;
+    padding: 0;
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 35px;
+    font-family: 'Bangers';
+    letter-spacing: 3px;
+}
+
+.alerts {
+    font-family: 'Bangers';
+    font-size: 20px;
+    color: var(--danger);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.alerts:hover {
+    animation: shake 0.8s;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0px); }
+    25% { transform: translateX(25px); }
+    50% { transform: translateX(-25px); }
+    100% { transform: translateX(0px); }
+}
+
+/* Join Thread */
+
+.join-thread {
+    width: 300px;
+    height: 50px;
+    font-size: 35px;
+    font-family: 'Bangers';
+    color: var(--primary);
+    letter-spacing: 15px;
+    text-align: center;
+    margin: auto;
+}
+
+/* Game InterFace */
+
+.game-select {
+    width: 150px;
+    height: 50px;
+    font-size: 35px;
+    font-family: 'Bangers';
+    color: var(--primary);
+    letter-spacing: 3px;
+    text-align: center;
+    margin: auto;
+}
+
+.game-option {
+    color: var(--primary);
+    font-size: 50px;
+    font-family: 'Bangers';
+}

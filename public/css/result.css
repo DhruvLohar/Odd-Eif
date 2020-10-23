@@ -1,0 +1,84 @@
+@keyframes wave {
+	from {
+		transform: translateY(0);
+		text-shadow : 0 0 .5em rgba(255,255,255,.4),
+					0 0 .2em rgba(0,0,0,.3),
+					0 .3em .2em rgba(0,0,0,.3);
+	}
+	to {
+		transform: translateY(-30px);
+	}
+}
+
+.result {
+	text-align: center;
+}
+
+.result span {
+	display: inline-block;
+	font-family: "Bangers";
+	animation-duration: 0.3s;
+	animation-name: wave;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+
+.result span:nth-child(2) {
+	animation-delay: -0.6s;
+}
+
+.result span:nth-child(3) {
+	animation-delay: -0.585s;
+}
+
+.result span:nth-child(4) {
+	animation-delay: -0.57s;
+}
+
+.result span:nth-child(5) {
+	animation-delay: -0.555s;
+}
+
+.result span:nth-child(6) {
+	animation-delay: -0.54s;
+}
+
+.result span:nth-child(7) {
+	animation-delay: -0.525s;
+}
+
+.result span:nth-child(8) {
+	animation-delay: -0.51s;
+}
+
+.result span:nth-child(9) {
+	animation-delay: -0.495s;
+}
+
+.result span:nth-child(10) {
+	animation-delay: -0.48s;
+}
+
+.result span:nth-child(11) {
+	animation-delay: -0.465s;
+}
+
+.result span:nth-child(12) {
+	animation-delay: -0.45s;
+}
+
+.result span:nth-child(13) {
+	animation-delay: -0.435s;
+}
+
+.result span:nth-child(14) {
+	animation-delay: -0.42s;
+}
+
+.result span:nth-child(15) {
+	animation-delay: -0.405s;
+}
+
+.result span:nth-child(16) {
+	animation-delay: -0.39s;
+}

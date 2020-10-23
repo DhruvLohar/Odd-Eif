@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/ico" href="/static/favicon.ico">
+    <title>Odd &bull; Eif</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/css/odd_eif.css">
+</head>
+<body>
+    <div class="container">
+        <div class="root-logo-container">
+            <img class="root-logo" src="/static/logo.png" alt="Logo">
+        </div>
+        <div class="root-container">
+            <div class="card shadow-lg root-card">
+                <div class="card-body text-center">
+                    <div class="main-menu">
+                        <h2 class="card-title root-welcome">Hello Player!</h2>
+                        <hr class="mx-2 my-2">
+                        <div class="root-menu">
+                            <button class="btn btn-outline-primary my-3 btn-single">
+                                <i class="material-icons-round">person</i>
+                                <span>Single Player</span>
+                            </button>
+                            <button class="btn btn-outline-primary my-3 btn-multi">
+                                <i class="material-icons-round">people</i>
+                                <span>Multi Player</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="game-interface">
+                        <div class="option">
+                            <h3 class="game-option my-3">Select Your Option</h3>
+                            <hr class="mx-4 my-2">
+                            <button class="btn btn-outline-primary my-3 btn-select-odd">
+                                <span>ODD</span>
+                            </button>
+                            <button class="btn btn-outline-primary my-3 btn-select-even">
+                                <span>EVEN</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(e => {
+            var root_menu = $('.root-menu');
+            var game_interface = $('.game-interface');
+            var thread_gen = () => {
+                var result = '';
+                var chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                for (var i = 5; i > 0; --i) result += chars[Math.round(Math.random() * (chars.length - 1))];
+                return result;
+            };
+            var alert = (type, msg) => `<div class="alert alert-${type}">${msg}</div>`;
+            var check_odd_even = (_data) => {
+                var sum = _data.player_num + _data.num;
+                if (sum % 2 == 0) {
+                    return true;
+                } else {
+                    return false;
+                }
+            };
+
+            var multi_thread = `
+            <button class="btn btn-outline-primary my-3 btn-create-thread">
+                <i class="material-icons-round">edit</i>
+                <span>Create Thread</span>
+            </button>
+            <button class="btn btn-outline-primary my-3 btn-join-thread">
+                <i class="material-icons-round">trending_up</i>
+                <span>Join Thread</span>
+            </button>
+            <hr class="mx-4 my-2">
+            <button class="btn btn-outline-primary my-3 back">
+                <i class="material-icons-round">arrow_back</i>
+                <span>Go Back</span>
+            </button>
+            `;
+
+            var join_thread = `
+            <div class="alerts"></div>
+            <div class="form-group my-3">
+                <input type="text" class="form-control join-thread" placeholder="Enter Code" maxlength="5">
+            </div>
+            <button class="btn btn-outline-primary my-3 btn-join">
+                <span>Join</span>
+                <i class="material-icons-round">arrow_forward</i>
+            </button>
+            <hr class="mx-4 my-2">
+            <button class="btn btn-outline-primary my-3 back">
+                <i class="material-icons-round">arrow_back</i>
+                <span>Go Back</span>
+            </button>
+            `;
+
+            var main_menu = `
+            <button class="btn btn-outline-primary my-3 btn-single">
+                <i class="material-icons-round">person</i>
+                <span>Single Player</span>
+            </button>
+            <button class="btn btn-outline-primary my-3 btn-multi">
+                <i class="material-icons-round">people</i>
+                <span>Multi Player</span>
+            </button>
+            `;
+
+            root_menu.on('click', '.btn-single', (e) => {
+                $('.root-card').css('transform', 'rotateY(180deg)');
+                $('.main-menu').fadeOut();
+            });
+            root_menu.on('click', '.btn-multi', (e) => {
+                root_menu.empty();
+                root_menu.append(multi_thread);
+            });
+            root_menu.on('click', '.back', (e) => {
+                root_menu.empty();
+                root_menu.append(main_menu);
+            });
+            root_menu.on('click', '.btn-join-thread', (e) => {
+                root_menu.empty();
+                root_menu.append(join_thread);
+            });
+
+            // Single Player Game Logic
+
+            var data = {
+                player_num: 0, num: 0,
+                player_option: '', option: ''
+            };
+
+            var game_content = `
+            <div class="form-group my-3">
+                <input type="text" class="form-control game-select" placeholder="Number" maxlength="2"
+                pattern="^[0-9]*$" title="Only Numericals Value Allowed!">
+            </div>
+            `;
+
+            $('.option').on('click', 'button', function(e) {
+                var option = $(this).children().text();
+                if (option == 'EVEN') {
+                    data.player_option = 'even';
+                    data.option = 'odd';
+                } else {
+                    data.player_option = 'odd';
+                    data.option = 'even';
+                }
+                game_interface.empty();
+                game_interface.append(game_content);
+            });
+            game_interface.on('change', '.game-select', function(e) {
+                var num = $(this).val();
+                data.player_num = parseInt(num);
+                data.num = Math.floor(Math.random() * 11);
+                res = check_odd_even(data);
+                if ((data.player_option == 'even' && res) || (data.player_option == 'odd' && !res)) {
+                    alert(`You Won --> ${data.player_num}, ${data.num}`);
+                } else {
+                    alert(`You Lost --> ${data.player_num}, ${data.num}`);
+                }
+            });
+
+            // Multiplayer Join & Create Functionality
+
+            root_menu.on('click', '.btn-create-thread', (e) => {
+                var thread = thread_gen();
+                window.location.href = `/game/thread/${thread}`;
+            });
+
+            root_menu.on('click', '.btn-join', (e) => {
+                var input = $('.join-thread');
+                var thread = input.val().toUpperCase();
+                var thread_regex = /^[A-Z0-9]*$/;
+                if (thread && (thread_regex.test(thread))) {
+                    window.location.href = `/game/thread/${thread}/`;
+                    $.ajax({
+                        'type': 'get',
+                        'url': `/game/thread/${thread}/`,
+                        success: (data) => { console.log(data); }
+                    });
+                } else {
+                    $('.alerts').empty();
+                    $('.alerts').append('Thread Contains Only AlphaNumericals!');
+                    input.css({'animation': 'shake 0.8s', 'color': 'var(--danger)', 'border-color': 'var(--danger)'});
+                    $('.root-card').css('border-color', 'var(--danger)');
+                }
+            });
+        });
+    </script>   
+</body>
+</html>

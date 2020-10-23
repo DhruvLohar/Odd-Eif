@@ -1,0 +1,198 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Bangers';
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+  
+::-webkit-scrollbar-track {
+    background: white; 
+}
+   
+::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    background: var(--primary); 
+}
+  
+::-webkit-scrollbar-thumb:hover {
+    background: var(--info); 
+}
+
+.flipped {
+    transform: rotateY(180deg);
+}
+
+.display-thread {
+    border-radius: 20px;
+}
+
+.display-thread div {
+    color: var(--primary);
+    font-size: 30px;
+}
+
+.thread {
+    letter-spacing: 5px;
+}
+
+.chat-option > i {
+    margin-left: auto;
+    font-size: 30px;
+    cursor: pointer;
+    vertical-align: middle;
+    user-select: none;
+    transition: all 0.8s ease;
+}
+
+/* GAME INTERFACE */
+.option { font-size: 35px; color: var(--primary); }
+
+.root-info { margin: 50px; color: var(--primary); text-align: center; font-size: 30px; }
+
+.game { display: none; }
+
+.root-info > span {
+    font-size: 30px;
+    color: var(--primary);
+    margin-top: 10px;
+}
+
+.spinner {
+    margin: auto;
+    width: 70px;
+    text-align: center;
+}
+  
+.spinner > div {
+    width: 18px;
+    height: 18px;
+    background-color: var(--primary);
+  
+    border-radius: 100%;
+    display: inline-block;
+    animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+}
+  
+.spinner .bounce1 {
+  animation-delay: -0.32s;
+}
+
+.spinner .bounce2 {
+  animation-delay: -0.16s;
+}
+
+@keyframes sk-bouncedelay {
+  0%, 80%, 100% { 
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  } 40% { 
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+  }
+}
+
+.root-game > div {
+    border-radius: 20px;
+    border-color: var(--primary);
+    align-items: center;
+    margin: 10px;
+    color: var(--primary);
+    font-size: 20px;
+}
+
+.opponent { color: var(--danger) !important; border-color: var(--danger) !important; }
+
+.result { 
+    padding-top: 50px;
+    color: var(--primary); 
+    font-size: 45px; 
+    transition: all 0.8s ease; 
+    display: none;
+}
+
+.lose { color: var(--danger) !important; }
+
+/* CHAT INTERFACE */
+.messages {
+    height: auto;
+    max-height: 330px;
+    overflow-y: scroll;
+}
+
+.message {
+    display: flex;
+    justify-content: flex-start;
+    clear: both;
+    color: white;
+    font-size: 18px;
+    letter-spacing: 1px;
+    text-align: left;
+}
+
+.self {
+    justify-content: flex-end;
+}
+
+.message-content {
+    background: var(--secondary);
+    border-radius: 15px;
+    border-top-left-radius: 0;
+    max-width: 200px;
+}
+
+.self > .message-content {
+    background: var(--primary) !important;
+    border-radius: 15px;
+    border-top-right-radius: 0;
+}
+
+.username {
+    font-size: smaller;
+}
+
+.msg-input {
+    resize: none;
+    height: 40px !important;
+    font-size: 19px;
+    font-family: 'Bangers';
+}
+
+.input-view {
+    margin-bottom: -12px;
+    z-index: 10;
+}
+
+.input-view > .col-2 i {
+    cursor: pointer;
+    transform: rotateZ(-10deg);
+    color: var(--primary);
+    font-size: 33px;
+    margin-left: -12px;
+    margin-bottom: -10px;
+}
+
+.message-info {
+    font-size: 18px;
+    color: var(--primary);
+}
+
+.left {
+    color: var(--danger) !important;
+}
+
+@keyframes alert {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); color: var(--danger); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); color: var(--primary); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
