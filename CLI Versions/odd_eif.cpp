@@ -1,5 +1,5 @@
-// Works In Turbo C++ Only!
-// By Dhruv Lohar
+// [!] Works In Turbo C++ Only!
+// [!] Coded By --> By Dhruv Lohar
 
 #include <iostream.h>
 #include <stdlib.h>
