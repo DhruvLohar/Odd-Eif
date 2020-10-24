@@ -1,3 +1,6 @@
+// Works In Turbo C++ Only!
+// By Dhruv Lohar
+
 #include <iostream.h>
 #include <stdlib.h>
 #include <time.h>
